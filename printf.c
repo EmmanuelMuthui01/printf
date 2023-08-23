@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format.
- * @format: a character string composed of zero or more directives.
+ * _printf - produces output according to a format
+ * @format: a character string composed of zero or more directives
  *
- * Return: the number of characters printed except null byte.
+ * Return: the number of characters printed except null byte
  */
 
 int _printf(const char *format, ...)
