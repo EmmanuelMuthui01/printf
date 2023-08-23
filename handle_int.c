@@ -11,6 +11,7 @@ int handle_int(va_list args)
 {
 	long number = va_arg(args, long);
 	int count = 0;
+	int reverse_n = 0;
 
 	if (number < 0)
 	{
@@ -25,8 +26,6 @@ int handle_int(va_list args)
 	}
 	else
 	{
-		int reverse_n = 0;
-
 		while (number > 0)
 		{
 			reverse_n = reverse_n * 10 + number % 10;
