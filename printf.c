@@ -11,12 +11,10 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	int i;
-	char c;
 
 	va_list args;
 
 	va_start(args, format);
-
 	if (format == NULL)
 		return (-1);
 
@@ -24,30 +22,30 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
+			while (format[i + 1] == ' ')
+				format[i++];
+			format[i++];
+			if (format[i] == '\0' || format[i] == ' ')
+				return (-1);
 			if (format[i] == 'c')
-			{
 				count += handle_char(args);
-			}
 			else if (format[i] == 's')
-			{
 				count += handle_string(args);
-			}
-			else if (format[i] = '%')
-			{
+			else if (format[i] == '%')
 				count += _putchar('%');
-			}
+			else if (format[i] == 'd' || format[i] == 'i')
+				count += print_int(args);
 			else
 			{
-				_putchar(format[i]);
-				count++;
+				format[i--];
+				count += _putchar(format[i]);
 			}
 		}
 		else
 		{
 			count += _putchar(format[i]);
 		}
-		i++;
+		format[i++];
 	}
 	va_end(args);
 	return (count);
