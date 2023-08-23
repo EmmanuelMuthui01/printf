@@ -2,7 +2,7 @@
 
 /**
  * handle_char - handles character conversion specifiers.
- * @args: variadic arguments
+ * @args: variadic arguments.
  *
  * Return: count of characters printed.
  */
