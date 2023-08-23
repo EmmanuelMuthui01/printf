@@ -4,7 +4,7 @@
  * handle_char - handles character conversion specifiers.
  * @args: variadic arguments
  *
- * Return: count of characters
+ * Return: count of characters printed.
  */
 
 int handle_char(va_list args)
@@ -13,5 +13,5 @@ int handle_char(va_list args)
 
 	ch = va_arg(args, int);
 	_putchar(ch);
-	return (1);
+	return (_putchar(ch));
 }
