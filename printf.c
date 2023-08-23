@@ -23,8 +23,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			while (format[i + 1] == ' ')
-				format[i++];
-			format[i++];
+				i++;
+			i++;
 			if (format[i] == '\0' || format[i] == ' ')
 				return (-1);
 			if (format[i] == 'c')
@@ -34,10 +34,10 @@ int _printf(const char *format, ...)
 			else if (format[i] == '%')
 				count += _putchar('%');
 			else if (format[i] == 'd' || format[i] == 'i')
-				count += print_int(args);
+				count += handle_int(args);
 			else
 			{
-				format[i--];
+				i--;
 				count += _putchar(format[i]);
 			}
 		}
@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 		{
 			count += _putchar(format[i]);
 		}
-		format[i++];
+		i++;
 	}
 	va_end(args);
 	return (count);
