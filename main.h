@@ -1,16 +1,22 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN_H_INCLUDED
+#define MAIN_H_INCLUDED
 
+/*Standard Library Headers*/
 #include <unistd.h>
 #include <stdarg.h>
 #include <string.h>
 
-int _putchar(char c);
+
+/*Function Declarations*/
 int _printf(const char *format, ...);
 
-/* helper functions */
+
+/*Helper Functions Declarations*/
 int print_string(char *str);
 int handle_string(va_list args);
 int handle_char(va_list args);
+int handle_int(va_list args);
+int _putchar(char c);
 
-#endif
+
+#endif /*MAIN_H INCLUDED*/
