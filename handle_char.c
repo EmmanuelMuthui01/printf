@@ -9,9 +9,11 @@
 
 int handle_char(va_list args)
 {
+	int count = 0;
 	char ch;
 
 	ch = va_arg(args, int);
 	_putchar(ch);
-	return (_putchar(ch));
+	count++;
+	return (count);
 }
