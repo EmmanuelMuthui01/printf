@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			else if (format[i] == 's')
 				count += handle_string(args);
 			else if (format[i] == '%')
-				count += _putchar('%');
+			count += _putchar('%');
 			else if (format[i] == 'd' || format[i] == 'i')
 				count += handle_int(args);
 			else
@@ -43,7 +43,6 @@ int _printf(const char *format, ...)
 		{
 			count += _putchar(format[i]);
 		}
-		i++;
 	}
 	va_end(args);
 	return (count);

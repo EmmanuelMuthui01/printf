@@ -1,34 +1,10 @@
 #include "main.h"
 
 /**
- * print_string - prints the string to the std output.
- * @str: pinter to the string.
- * Return: number of characters.
- */
-
-int print_string(char *str)
-{
-	int count;
-
-	if (str == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	else
-	{
-		count = strlen(str);
-		write(1, str, count);
-		return (count);
-	}
-}
-
-
-/**
  * handle_string - handles strings conversion specifier.
  * @args: variadic arguments.
  *
- * Return: 1 on success.
+ * Return: length of the string, otherwise -1
  */
 
 int handle_string(va_list args)
@@ -37,11 +13,6 @@ int handle_string(va_list args)
 
 	str = va_arg(args, char *);
 	if (str == NULL)
-	{
-		return (print_string("(null)"));
-	}
-	else
-	{
-		return (print_string(str));
-	}
+		str = "(null)";
+	return (write(1, str, strlen(str)));
 }
