@@ -9,9 +9,9 @@
 
 int handle_int(va_list args)
 {
-	long number = va_arg(args, long);
+	int number = va_arg(args, int);
 	int count = 0;
-	int reverse_n = 0;
+	int rev_num = 0;
 
 	if (number < 0)
 	{
@@ -28,14 +28,14 @@ int handle_int(va_list args)
 	{
 		while (number > 0)
 		{
-			reverse_n = reverse_n * 10 + number % 10;
+			rev_num = rev_num * 10 + number % 10;
 			number /= 10;
 		}
-		while (reverse_n > 0)
+		while (rev_num > 0)
 		{
-			_putchar(reverse_n % 10 + '0');
+			_putchar(rev_num % 10 + '0');
 			count++;
-			reverse_n /= 10;
+			rev_num /= 10;
 		}
 	}
 	return (count);
